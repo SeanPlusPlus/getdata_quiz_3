@@ -25,8 +25,8 @@ getData <- function() {
 
   # fetch and return
   fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
-  download.file(fileUrl, destfile = "./data/data1.fwf", method = "curl")
-  data <- read.csv("./data/data1.fwf")
+  download.file(fileUrl, destfile = "./data/data1.csv", method = "curl")
+  data <- read.csv("./data/data1.csv")
   return(data)
 }
 
