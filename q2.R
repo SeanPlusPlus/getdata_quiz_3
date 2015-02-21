@@ -34,7 +34,8 @@ main <- function() {
 }
 
 main()
-# img <- source('q2.R')
+# img <- source('q2.R');
+# class(img)
 # data <- data.matrix(img)
 # answer <- quantile(data[[1]], c(.3, .8))
 # print(answer)
