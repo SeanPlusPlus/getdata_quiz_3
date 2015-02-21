@@ -24,8 +24,8 @@ getData <- function() {
   }
 
   # fetch and return
-  # fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
-  # download.file(fileUrl, destfile = "./data/data1.fwf", method = "curl")
+  fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
+  download.file(fileUrl, destfile = "./data/data1.fwf", method = "curl")
   data <- read.csv("./data/data1.fwf")
   return(data)
 }
@@ -34,6 +34,11 @@ getData <- function() {
 main <- function() {
 ################################################################################
   data <- getData()
+
+  # ACR: 3 .House on ten or more acres
+  # AGS: 6 .$10000+
+  agricultureLogical <- with(data, ACR == 3 & AGS == 6)
+  return(which(agricultureLogical)[1:3])
 }
 
-# main()
+main()
