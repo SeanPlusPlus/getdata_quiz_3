@@ -4,11 +4,16 @@
 #
 # Use the parameter native=TRUE. What are the 30th and 80th quantiles of the
 # resulting data?
+#
 # (some Linux systems may produce an answer 638 different for the 30th quantile)
 
 ################################################################################
-getData <- function() {
+getImage <- function() {
 ################################################################################
+
+  # install packages
+  install.packages("jpeg")  ## if necessary
+  library(jpeg)
 
   # add data dir
   if (!file.exists("data")) {
@@ -18,14 +23,14 @@ getData <- function() {
   # fetch and return
   fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fjeff.jpg"
   download.file(fileUrl, destfile = "./data/data2.jpg", method = "curl")
-  data <- read.csv("./data/data2.jpg")
-  return(data)
+  img <- readJPEG("./data/data2.jpg")
+  return(img)
 }
 
 ################################################################################
 main <- function() {
 ################################################################################
-  data <- getData()
+  img <- getImage()
 }
 
 main()
